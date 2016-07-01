@@ -16,8 +16,7 @@ export class HomePage {
                 content: string,
                 icon: string,
                 img: string,
-                component: any
-              }>;
+                component: any}>;
 
   constructor(private navController: NavController, translate: TranslateService) {
     this.translate = translate;
@@ -31,25 +30,25 @@ export class HomePage {
         content: 'home.contentActu',
         icon: 'at',
         img: 'img',
-        component: "ActuPage"
+        component: "ActuPage" //enlever les guillemets lorsque les class seront créées
       },
       { title: 'home.titleMap',
         content: 'home.contentMap',
         icon: 'map',
         img: 'img',
-        component: "MapPage"
+        component: "MapPage" //enlever les guillemets lorsque les class seront créées
       },
       { title: 'home.titleAnnuaire',
         content: 'home.contentAnnuaire',
         icon: 'search',
         img: 'img',
-        component: "AnnuairePage"
+        component: "AnnuairePage" //enlever les guillemets lorsque les class seront créées
       },
       { title: 'home.titleDemarche',
         content: 'home.contentDemarche',
         icon: 'help',
         img: 'img',
-        component: "DemarchePage"
+        component: "DemarchePage" //enlever les guillemets lorsque les class seront créées
       }
     ];
   }
