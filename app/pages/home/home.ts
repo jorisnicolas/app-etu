@@ -1,6 +1,10 @@
 import {Component, ViewChild} from '@angular/core';
-import {NavController, Nav} from 'ionic-angular';
+import {NavController} from 'ionic-angular';
 import {TranslateService, TranslatePipe} from 'ng2-translate/ng2-translate';
+import {NewsPage} from '../news/news';
+import {MapPage} from '../map/map';
+import {DirectoryPage} from '../directory/directory';
+import {ProcessPage} from '../process/process';
 
 @Component({
   templateUrl: 'build/pages/home/home.html',
@@ -8,7 +12,6 @@ import {TranslateService, TranslatePipe} from 'ng2-translate/ng2-translate';
 })
 export class HomePage {
 
-  @ViewChild(Nav) nav: Nav;
 
   translate: TranslateService;
 
@@ -30,32 +33,32 @@ export class HomePage {
         content: 'home.contentActu',
         icon: 'at',
         img: 'img',
-        component: "ActuPage" //enlever les guillemets lorsque les class seront créées
+        component: NewsPage 
       },
       { title: 'home.titleMap',
         content: 'home.contentMap',
         icon: 'map',
         img: 'img',
-        component: "MapPage" //enlever les guillemets lorsque les class seront créées
+        component: MapPage
       },
       { title: 'home.titleAnnuaire',
         content: 'home.contentAnnuaire',
         icon: 'search',
         img: 'img',
-        component: "AnnuairePage" //enlever les guillemets lorsque les class seront créées
+        component: DirectoryPage
       },
       { title: 'home.titleDemarche',
         content: 'home.contentDemarche',
         icon: 'help',
         img: 'img',
-        component: "DemarchePage" //enlever les guillemets lorsque les class seront créées
+        component: ProcessPage
       }
     ];
   }
 
   openPage(page) {
      // navigate to the new page if it is not the current page
-     this.nav.setRoot(page.component);
+     this.navController.setRoot(page.component);
   }
 
   chooseLang(lang) {

@@ -10,7 +10,7 @@
 </ion-header>
 
 <ion-content class="home">
-  <ion-card class="card-50-float" *ngFor="let p of pages">
+  <ion-card class="card-50-float" *ngFor="let p of pages" (click)="openPage(p)">
     <!--<img src="assets/img/ugaLogoHomeNavbar.png" alt="" />-->
     <ion-card-content>
       <ion-card-title>

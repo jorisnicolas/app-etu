@@ -1,10 +1,10 @@
 {
       "home.titleActu": "News",
-      "home.contentActu": "",
+      "home.contentActu": "The latest news about the UGA and the incomings events",
       "home.titleMap": "Map",
-      "home.contentMap": "",
-      "home.titleAnnuaire": "",
-      "home.contentAnnuaire": "",
-      "home.titleDemarche": "",
-      "home.contentDemarche": ""
+      "home.contentMap": "Interactive map",
+      "home.titleAnnuaire": "Directory",
+      "home.contentAnnuaire": "The inside's directory of UGA, looking for a teacher or a service ?",
+      "home.titleDemarche": "Administrative Process",
+      "home.contentDemarche": "A question about your orientation or a request to submit ?"
 }
