@@ -23,32 +23,28 @@ export class HomePage {
 
   constructor(private navController: NavController, translate: TranslateService) {
     this.translate = translate;
-    
-
-    this.translate.setDefaultLang('fr');
-    this.translate.use('fr');
 
     this.pages = [
-      { title: 'home.titleActu',
-        content: 'home.contentActu',
-        icon: 'at',
+      { title: 'pages.news',
+        content: 'home.contentNews',
+        icon: 'paper',
         img: 'img',
         component: NewsPage 
       },
-      { title: 'home.titleMap',
+      { title: 'pages.map',
         content: 'home.contentMap',
-        icon: 'map',
+        icon: 'pin',
         img: 'img',
         component: MapPage
       },
-      { title: 'home.titleAnnuaire',
-        content: 'home.contentAnnuaire',
+      { title: 'pages.directory',
+        content: 'home.contentDirectory',
         icon: 'search',
         img: 'img',
         component: DirectoryPage
       },
-      { title: 'home.titleDemarche',
-        content: 'home.contentDemarche',
+      { title: 'pages.process',
+        content: 'home.contentProcess',
         icon: 'help',
         img: 'img',
         component: ProcessPage
@@ -58,7 +54,7 @@ export class HomePage {
 
   openPage(page) {
      // navigate to the new page if it is not the current page
-     this.navController.setRoot(page.component);
+     this.navController.push(page.component);
   }
 
   chooseLang(lang) {

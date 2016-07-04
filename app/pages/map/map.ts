@@ -1,14 +1,20 @@
 import {Component} from '@angular/core';
-
+import {NavBarDirective} from '../../../www/assets/directives/navbar/navbar';
+import {TranslateService, TranslatePipe} from 'ng2-translate/ng2-translate';
 
 @Component({
-  templateUrl: 'build/pages/map/map.html'
+  templateUrl: 'build/pages/map/map.html',
+  directives: [NavBarDirective],
+  pipes: [TranslatePipe]
 })
+
 export class MapPage {
 
+  thisPage: string;
 
-
-  constructor() {
+  constructor(translate: TranslateService) {  
+    this.thisPage = "pages.map";
 
   }
 }
+

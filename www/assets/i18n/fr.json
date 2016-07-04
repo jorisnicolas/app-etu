@@ -1,10 +1,12 @@
 {
-      "home.titleActu": "Actualité",
-      "home.contentActu": "Les dernières actualié de l'UGA et les événements à venir !",
-      "home.titleMap": "Carte",
+      "pages.home": "Accueil",
+      "pages.news": "Actualités",
+      "pages.map": "Carte",
+      "pages.directory": "Annuaire",
+      "pages.process": "Démarches",
+
+      "home.contentNews": "Les dernières actualié de l'UGA et les événements à venir !",
       "home.contentMap": "Carte intéractive",
-      "home.titleAnnuaire": "Annuaire",
-      "home.contentAnnuaire": "L'annuaire permet de rechercher un service ou un professeur au sein de l'UGA",
-      "home.titleDemarche": "Démarche",
-      "home.contentDemarche": "Une question à propos de votre orientation ou une requête à soumettre ?"
+      "home.contentDirectory": "L'annuaire permet de rechercher un service ou un professeur au sein de l'UGA",
+      "home.contentProcess": "Une question à propos de votre orientation ou une requête à soumettre ?"
 }

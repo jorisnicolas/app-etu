@@ -1,24 +1,22 @@
-<ion-header>
-  <ion-navbar>
-    <img src="assets/img/ugaLogoHomeNavbar.png" alt="" />
-
+<ion-header class="home">
+  <ion-navbar class="navbar-underline">
+    <img src="assets/img/logo-uga.png" alt="" />
     <ion-buttons end>
-        <button outline (click)="chooseLang('fr')">fr</button>
-        <button outline (click)="chooseLang('en')">en</button>
+        <button class="btn-lang fr" (click)="chooseLang('fr')"></button>
+        <button class="btn-lang en" (click)="chooseLang('en')"></button>
     </ion-buttons>
   </ion-navbar>
 </ion-header>
 
 <ion-content class="home">
   <ion-card class="card-50-float" *ngFor="let p of pages" (click)="openPage(p)">
-    <!--<img src="assets/img/ugaLogoHomeNavbar.png" alt="" />-->
     <ion-card-content>
       <ion-card-title>
-          <ion-icon name="{{p.icon}}"></ion-icon> {{ p.title | translate }}
+          <ion-icon class="card-title-icon" name="{{p.icon}}"></ion-icon> 
+          <span class="card-title-red">{{ p.title | translate }}</span>
       </ion-card-title>
-      <p>
-        {{ p.content | translate }}
-      </p>
+      <div class="card-separator"></div>
+      <p>{{ p.content | translate }}</p>
     </ion-card-content>
   </ion-card>
 </ion-content>
