@@ -24,8 +24,7 @@ Run
 To launch the app on a web platform
 * ionic serve
 
-To test on an Android device :
-Run 
+To test on an Android device
 * npm install -g cordova
 * ionic build android
 * ionic run android
