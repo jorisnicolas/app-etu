@@ -13,10 +13,20 @@ Make sure you have NodeJS installed.
    
 INSTALLATION
 ------------
- 
-Run - npm install
 
-To test on device Run - npm install -g cordova
+npm install -g ionic@beta
+ 
+Go to the repo directory - cd ./././app
+
+then,
+Run - npm install
+    - ionic serve
+
+To test on an Android device 
+Run - npm install -g cordova
+    - ionic build android
+    - ionic run android
+
    
 MAINTAINERS
 -----------
