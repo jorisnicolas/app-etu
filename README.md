@@ -19,13 +19,13 @@ npm install -g ionic@beta
 Go to the repo directory - cd ./././app
 
 then,
-Run - npm install
-    - ionic serve
+Run * npm install
+    * ionic serve
 
 To test on an Android device 
-Run - npm install -g cordova
-    - ionic build android
-    - ionic run android
+Run * npm install -g cordova
+ * ionic build android
+ * ionic run android
 
    
 MAINTAINERS
