@@ -1,6 +1,8 @@
 {
       "pages.home": "Accueil",
-      "pages.news": "Actualités",
+      "pages.news": "Actualités/Agenda",
+      "news.news": "Actualités",
+      "news.events": "Agenda",
       "pages.map": "Carte",
       "pages.directory": "Annuaire",
       "pages.process": "Démarches",

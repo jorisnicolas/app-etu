@@ -2,7 +2,7 @@ import {Component, provide} from '@angular/core';
 import {Platform, ionicBootstrap} from 'ionic-angular';
 import {StatusBar} from 'ionic-native';
 import {TranslateService, TranslateLoader, TranslateStaticLoader} from 'ng2-translate/ng2-translate';
-import {Http} from '@angular/http';
+import {Http, HTTP_PROVIDERS} from '@angular/http';
 import {HomePage} from './pages/home/home';
 
 
@@ -35,4 +35,4 @@ export class MyApp {
 }
 
 
-ionicBootstrap(MyApp);
+ionicBootstrap(MyApp, [HTTP_PROVIDERS]);

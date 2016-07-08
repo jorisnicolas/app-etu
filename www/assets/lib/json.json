@@ -1,0 +1,36 @@
+{
+"channel": {
+    "title": "Université Grenoble Alpes",
+    "link": "http://www.univ-grenoble-alpes.fr",
+    "description": "Les évènements organisés à l'Université Grenoble Alpes",
+    "item": [
+      {
+        "title": "Théatre : \"Cosmogone\"",
+        "link":"http://www.univ-grenoble-alpes.fr/fr/acces-direct/actualites/agenda/agenda-culture-cst/theatre-cosmogone--75807.kjsp",
+        "description": "Fiche Actualité - 05/07/2016",
+        "pubDate": "Tue, 05 Jul 2016 14:30:00 GMT",
+        "guid":"http://www.univ-grenoble-alpes.fr/fr/acces-direct/actualites/agenda/agenda-culture-cst/theatre-cosmogone--75807.kjsp",
+        "creator": "celie.rodriguez@univ-grenoble-alpes.fr (Celie Rodriguez)",
+        "date": "2016-07-05T14:30:00Z"
+      },
+      {
+        "title": "Conférence démonstration : \"Le masque neutre à fleur de peau\"",
+        "link":"http://www.univ-grenoble-alpes.fr/fr/acces-direct/actualites/agenda/agenda-culture-cst/conference-demonstration-le-masque-neutre-a-fleur-de-peau--75804.kjsp",
+        "description": "Fiche Actualité - 05/07/2016",
+        "pubDate": "Tue, 05 Jul 2016 14:28:00 GMT",
+        "guid":"http://www.univ-grenoble-alpes.fr/fr/acces-direct/actualites/agenda/agenda-culture-cst/conference-demonstration-le-masque-neutre-a-fleur-de-peau--75804.kjsp",
+        "creator": "celie.rodriguez@univ-grenoble-alpes.fr (Celie Rodriguez)",
+        "date": "2016-07-05T14:28:00Z"
+      },
+      {
+        "title": "Conférence démonstration : \"Le masque neutre à fleur de peau\"",
+        "link":"http://www.univ-grenoble-alpes.fr/fr/acces-direct/actualites/agenda/agenda-culture-cst/conference-demonstration-le-masque-neutre-a-fleur-de-peau--75804.kjsp",
+        "description": "Fiche Actualité - 05/07/2016",
+        "pubDate": "Tue, 05 Jul 2016 14:28:00 GMT",
+        "guid":"http://www.univ-grenoble-alpes.fr/fr/acces-direct/actualites/agenda/agenda-culture-cst/conference-demonstration-le-masque-neutre-a-fleur-de-peau--75804.kjsp",
+        "creator": "celie.rodriguez@univ-grenoble-alpes.fr (Celie Rodriguez)",
+        "date": "2016-07-05T14:28:00Z"
+      }
+    ]
+  }
+}

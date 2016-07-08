@@ -15,8 +15,7 @@ export class NavBarDirective {
   @Input() pageName: any;
 
   constructor(private navController: NavController) {
-    console.log(HomePage);
-    console.log(this.navController.last().data);
+
   }
   
   

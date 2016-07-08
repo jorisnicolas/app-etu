@@ -1,6 +1,8 @@
 {
       "pages.home": "Home",
-      "pages.news": "News",
+      "pages.news": "News/Events",
+      "news.news": "News",
+      "news.events": "Events",
       "pages.map": "Map",
       "pages.directory": "Directory",
       "pages.process": "Process",

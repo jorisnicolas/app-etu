@@ -1,2 +1,43 @@
 <navbar-component [pageName]="thisPage | translate"></navbar-component>
-<ion-content></ion-content>
+<ion-content class="content">
+    <ion-spinner *ngIf="!loaded"></ion-spinner>
+    <ion-grid>
+        <ion-row>
+            <ion-col width-50>
+                <h6>{{news.description}}</h6>
+                <ion-list>
+                    <ion-item class="item-news" *ngFor="let new of news.item" (click)="openModal({data: new, from: 'news.news' })">
+                        <ion-thumbnail class="img-thumbnail" item-left>
+                        <img src="assets/img/logo-uga.png">
+                        </ion-thumbnail>
+                        <p>{{new.title}}</p>
+                        <p>{{new.pubDate | date:"dd/MM/yy"}}</p>
+                    </ion-item>
+                </ion-list>
+            </ion-col>
+            <ion-col width-50>
+                <ion-slides #mySlider (ionDidChange)="onSlideChanged()" [options]="mySlideOptions">
+                    <ion-slide>
+                        <img src="assets/img/grenoble.png">
+                    </ion-slide>
+                    <ion-slide>
+                        <img src="assets/img/campus.png">
+                    </ion-slide>
+                    <ion-slide>
+                        <img src="assets/img/logo-uga.png">
+                    </ion-slide>
+                </ion-slides>
+                <h6>{{agenda.description}}</h6>
+                <ion-list>
+                    <ion-item class="item-agd" *ngFor="let agd of agenda.item" (click)="openModal({data: agd, from: 'news.events' })">
+                        <ion-thumbnail class="img-thumbnail" item-left>
+                        <img src="assets/img/logo-uga.png">
+                        </ion-thumbnail>
+                        <p>{{agd.title}}</p>
+                        <p>{{agd.date | date:"dd/MM/yy à H:mm"}}</p>
+                    </ion-item>
+                </ion-list>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
+</ion-content>
