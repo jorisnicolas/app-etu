@@ -32,11 +32,12 @@ export class MapPage {
 
       this.thisPage = "pages.map";
       this.http = http;
-      menu.enable(true);
+      menu.enable(true);  
+      //this.getGoogleData();    
 
-      this.http.get('http://clement-marin.fr/webServices/map.json')
-        .map(res => res.json()).subscribe(data => {
-            this.mapData = data.elements;
+      this.http.get('http://clement-marin.fr/webServices/mapdata.json')
+          .map(res => res.json()).subscribe(data => {
+              this.mapData = data;
       });
 
       platform.ready().then(() => { 
@@ -45,24 +46,30 @@ export class MapPage {
         this.createMarkers();
         this.resizeMap();
 
-        // Geolocation.getCurrentPosition().then(pos => {
-        //   var markerColor = this.setColorMarker(null);
-        //   var marker = new google.maps.Marker({
-        //     position: new google.maps.LatLng(pos.coords.latitude, pos.coords.longitude),
-        //     animation: google.maps.Animation.DROP,
-        //     icon:       {
-        //         path: google.maps.SymbolPath.CIRCLE,
-        //         scale: 7,
-        //         strokeColor: '#ffffff',
-        //         strokeOpacity: .85,
-        //         strokeWeight: 3,
-        //         fillColor: markerColor,
-        //         fillOpacity: 1.0,
-        //     }
-        //   });
-        //   marker.setMap(this.map);
-        // });
       });
+  }
+
+  getGoogleData() {
+      var apiKey = "AIzaSyBrF5Gnan0L4wVTKtirw1R9QMadU11eFm4";
+      var location = "45.191760, 5.768625";
+      var radius = "500";
+      var baseUrl = "https://maps.googleapis.com/maps/api/place/nearbysearch/json?";
+
+      var types = [
+                    "restaurant|bar|liquor_store|meal_delivery|meal_takeaway|cafe|food", 
+                    "library",
+                    "gym|health|hospital|pharmacy",
+                    "store|atm|laundry|bank|post_office"
+                  ];
+
+      types.forEach(element => {
+        var url = baseUrl +'location='+ location +'&radius='+ radius +'&types='+ element +'&key='+ apiKey;
+        this.http.get(url)
+            .map(res => res.json()).subscribe(data => {
+                this.mapData.push(data);
+        });
+        console.log(this.mapData);
+      })
   }
 
 
@@ -86,6 +93,8 @@ export class MapPage {
   */
   putMarker(map, type) {
       for (var i = 0; i < this.markers.length; i++) {
+        console.log(type);
+        console.log(this.markers[i]);
         if(this.markers[i].type === type) {
           this.markers[i].setMap(map);
         }
@@ -97,7 +106,8 @@ export class MapPage {
   */
   createMap() {
     this.map = new google.maps.Map(document.getElementById('map'), {
-          zoom: 15,     // agrandissement de la carte
+          zoom: 15,     // agrandissement de la carte,
+          minZoom: 15,
           center: new google.maps.LatLng(45.191760, 5.768625),   //centre de la carte
           mapTypeId: google.maps.MapTypeId.ROADMAP,
           disableDefaultUI: true,
@@ -109,9 +119,13 @@ export class MapPage {
   * Run throw every marker
   */
   createMarkers() {
+    var type = ['rst', 'lib', 'san', 'ser'];
     setTimeout(() => {
-      this.mapData.forEach(element => {
-        this.addMarker(element);
+      
+      type.forEach(data => {
+        for (var i = 0; i < this.mapData[data].length; i++) {
+           this.addMarker(this.mapData[data][i], data);
+        }
       })}, 1000);
   }
 
@@ -119,10 +133,10 @@ export class MapPage {
   * push the marker to the array markers
   * @param marker : Object     Marker object
   */
-  addMarker(element) {
-    var markerColor = this.setColorMarker(element.tags.amenity);
+  addMarker(element, type) {
+    var markerColor = this.setColorMarker(type);
     var marker = new google.maps.Marker({
-          position: new google.maps.LatLng(element.lat, element.lon),
+          position: new google.maps.LatLng(element.geometry.location.lat, element.geometry.location.lng),
           icon: {
               path: google.maps.SymbolPath.CIRCLE,
               scale: 7,
@@ -134,11 +148,10 @@ export class MapPage {
         }
     });
 
-    marker.set('type', this.setNewType(element.tags.amenity));
-    console.log(element);
-    if(element.tags.name || element.tags.operator) {
+    marker.set('type', type);
+    if(element.name) {
       var infowindow = new google.maps.InfoWindow({
-      content: element.tags.name || element.tags.operator
+      content: element.name
       });
       google.maps.event.addListener(marker, 'click', function(event) {
         infowindow.open(this.map, marker);
@@ -155,42 +168,19 @@ export class MapPage {
   setColorMarker(type) {
       switch(type)
       {
-        case "restaurant" || "fast_food":
+        case "rst":
           return '#FF9327';
         case "adm":
           return '#387ef5';
-        case "library":
+        case "lib":
           return '#32db64';
-        case "bicycle_parking" || "parking":
+        case "san":
           return '#222';
-        case "sps":
+        case "ser":
           return '#f53d3d';
-        case "post_office" || "toilets" || "atm": 
+        default: 
           return '#E845B2';
       }
-  }
-
-  /**
-  * Set the new type 
-  * @param type : String  Type of marker
-  * @return String
-  */
-  setNewType(type) {
-    switch(type)
-    {
-        case "restaurant" || "fast_food":
-          return "rst";
-        case "adm":
-          return "rst";
-        case "library":
-          return "bbl";
-        case "bicycle_parking" || "parking":
-          return "tsp";
-        case "sps":
-          return "rst";
-        case "post_office" || "toilets" || "atm": 
-          return "svc";
-    }
   }
 
   /**
