@@ -42,7 +42,7 @@ ion-spinner {
 }
 
 .content {
-        margin-top: 56px;
+        margin-top: 55px;
 }
 
 .toolbar-title {
@@ -60,6 +60,10 @@ ion-label {
         text-align: justify;
 }
 
+ion-slides {
+    height: 47.36%;
+}
+
 @media only screen and (min-height: 600px) and (min-width: 768px) {
         .modal-wrapper {
                 position: absolute;
@@ -67,9 +71,6 @@ ion-label {
                 left: calc(50% - (90%/2));
                 width: 90%;
                 height: 85%;
-        }
-        ion-list > .item:last-child{
-                border: 0 !important;
         }
 }
 

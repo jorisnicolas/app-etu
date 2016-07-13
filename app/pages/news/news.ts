@@ -24,6 +24,9 @@ import {MyModal} from './modals/modals';
       .item-agd{
             height: 70px;
       }
+      .no-border{
+          border: 0 !important;
+      }
   `],
   pipes: [TranslatePipe]
 })
@@ -31,41 +34,43 @@ import {MyModal} from './modals/modals';
 export class NewsPage {
 
   @ViewChild('mySlider') slider: Slides;
-
-  thisPage: string;
-  agenda= [];
-  news= [];
-  loaded = false;
-  url = ["assets/lib/news.json", "assets/lib/json.json"];
   
   mySlideOptions = {
     loop: true,
-    initialSlide: 4,
     autoplay: 5000, 
     pager: true,
     speed: 500
   };
 
+  thisPage: string;
+
+  agenda= [];
+  news= [];
+  loaded = false;
+  url = ["http://clement-marin.fr/webServices/news.json", "http://clement-marin.fr/webServices/diary.json"];
+  
+  
+
   constructor(translate: TranslateService, public nav: NavController, public http: Http) {  
     this.thisPage = "pages.news";
     this.http = http;
-    console.log(this.slider.getSlider());
 
     this.http.get(this.url[0])
     .map(res => res.json()).subscribe(data => {
-        this.news = data.channel;
+        this.news = data.channel.item;
         this.loaded = true;
+        this.news = this.news.slice(0, 5);
     });
     this.http.get(this.url[1])
     .map(res => res.json()).subscribe(data => {
-        this.agenda = data.channel;
+        this.agenda = data.channel.item;
         this.loaded = true;
+        this.agenda = this.agenda.slice(0, 3);
     });
   }
 
   onSlideChanged() {
     let currentIndex = this.slider.getActiveIndex();
-    this.slider.slideTo(0);
     console.log("Current index is", currentIndex);
   }
 

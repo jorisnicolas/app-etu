@@ -14,6 +14,5 @@ export class DirectoryPage {
 
   constructor(translate: TranslateService) {  
     this.thisPage = "pages.directory";
-
   }
 }
