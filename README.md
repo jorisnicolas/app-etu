@@ -1,7 +1,7 @@
 INTRODUCTION
 ------------
 
-Application for the futur reception terminal for the University Grenoble Alpes. 
+Prototype for the futur reception terminal application for the Grenoble Alpes University.
 Allowing student to get concret information about the university.
 
 
@@ -16,7 +16,7 @@ INSTALLATION
 
 npm install -g ionic@beta
  
-Go to the repo directory - cd ./././app
+Go to the directory repository
 
 Run 
 * npm install
@@ -24,10 +24,13 @@ Run
 To launch the app on a web platform
 * ionic serve
 
-To test on an Android device
+To run on an Android device
 * npm install -g cordova
-* ionic build android
+* ionic platform add android
+* (ionic build android)
 * ionic run android
+
+NOT tested on IOS device
 
    
 MAINTAINERS
