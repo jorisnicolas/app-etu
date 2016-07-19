@@ -1,14 +1,32 @@
 {
       "pages.home": "Accueil",
-      "pages.news": "Actualités/Agenda",
-      "news.news": "Actualités",
-      "news.events": "Agenda",
-      "pages.map": "Carte",
-      "pages.directory": "Annuaire",
-      "pages.process": "Démarches",
+            "home.contentNews": "Les dernières actualités de l'UGA et les événements à venir !",
+            "home.contentMap": "Carte intéractive",
+            "home.contentDirectory": "L'annuaire permet de rechercher un service ou un professeur au sein de l'UGA",
+            "home.contentProcess": "Une question à propos de votre orientation ou une requête à soumettre ?",
 
-      "home.contentNews": "Les dernières actualités de l'UGA et les événements à venir !",
-      "home.contentMap": "Carte intéractive",
-      "home.contentDirectory": "L'annuaire permet de rechercher un service ou un professeur au sein de l'UGA",
-      "home.contentProcess": "Une question à propos de votre orientation ou une requête à soumettre ?"
+      "pages.news": "Actualités/Agenda",
+            "news.news": "Actualités",
+            "news.events": "Agenda",
+
+      "pages.map": "Carte",
+            "map.filter": "Filtres",
+            "map.food": "Restauration",
+            "map.administration": "Administration",
+            "map.library": "Bibliothèque",
+            "map.transport": "Transport",
+            "map.health": "Sport / Santé",
+            "map.utility": "Services",
+
+      "pages.directory": "Annuaire",
+            "directory.firstname": "Prénom",
+            "directory.lastname": "Nom",
+            "directory.component": "Composante",
+            "directory.service": "Direction / Service",
+            "directory.laboratory": "Laboratoire",
+            "directory.structure": "Structure fédérative",
+            "directory.search": "Recherche",
+            "directory.results": "Résultat(s)",
+
+      "pages.process": "Démarches"
 }

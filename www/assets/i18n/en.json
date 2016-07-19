@@ -1,14 +1,32 @@
 {
       "pages.home": "Home",
-      "pages.news": "News/Events",
-      "news.news": "News",
-      "news.events": "Events",
-      "pages.map": "Map",
-      "pages.directory": "Directory",
-      "pages.process": "Process",
+            "home.contentNews": "The latest news about the UGA and the incomings events",
+            "home.contentMap": "Interactive map",
+            "home.contentDirectory": "The inside's directory of UGA, looking for a teacher or a service ?",
+            "home.contentProcess": "A question about your orientation or a request to submit ?",
 
-      "home.contentNews": "The latest news about the UGA and the incomings events",
-      "home.contentMap": "Interactive map",
-      "home.contentDirectory": "The inside's directory of UGA, looking for a teacher or a service ?",
-      "home.contentProcess": "A question about your orientation or a request to submit ?"
+      "pages.news": "News/Events",
+            "news.news": "News",
+            "news.events": "Events",
+
+      "pages.map": "Map",
+            "map.filter": "Filters",
+            "map.food": "Restoration",
+            "map.administration": "Administration",
+            "map.library": "Library",
+            "map.transport": "Transport",
+            "map.health": "Sport / health",
+            "map.utility": "Utility",
+
+      "pages.directory": "Directory",
+            "directory.firstname": "First Name",
+            "directory.lastname": "Last Name",
+            "directory.component": "Component",
+            "directory.service": "Division / Unit",
+            "directory.laboratory": "Laboratory",
+            "directory.structure": "Federative Structure",
+            "directory.search": "Search",
+            "directory.results": "Result(s)",
+
+      "pages.process": "Process"
 }

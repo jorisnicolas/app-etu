@@ -33,6 +33,8 @@
     <plugin name="cordova-plugin-whitelist" spec="~1.2.2" />
     <plugin name="cordova-plugin-splashscreen" spec="~3.2.2" />
     <plugin name="cordova-plugin-statusbar" spec="~2.1.3" />
+    <plugin name="cordova-plugin-geolocation" spec="~2.2.0" />
+    <plugin name="cordova-plugin-compat" spec="~1.0.0" />
     <plugin name="ionic-plugin-keyboard" spec="~2.2.1" />
     <plugin name="plugin.google.maps" spec="~1.3.9">
         <variable name="API_KEY_FOR_ANDROID" value="AIzaSyD2iuKZ5z4tpgG9YJ42wU5y5tQaeUaq_U8" />

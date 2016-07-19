@@ -1,3 +1,118 @@
 <navbar-component [pageName]="thisPage | translate"></navbar-component>
-<ion-content></ion-content>
+<ion-content class="content">
+    <ion-grid>
+        <ion-row>
+            <ion-col width-33>
+                <ion-card>
+                    <form (ngSubmit)="onSubmit(firstname, lastname, component, service, laboratory, structure)">
+                        <ion-list>
+                            <ion-item>
+                                <ion-label>{{'directory.firstname' | translate}} :</ion-label>
+                                <ion-input type="text" [(ngModel)]="firstname"></ion-input>
+                            </ion-item>
 
+                            <ion-item>
+                                <ion-label>{{'directory.lastname' | translate}} :</ion-label>
+                                <ion-input type="text" [(ngModel)]="lastname"></ion-input>
+                            </ion-item>
+
+                            <ion-item>
+                                <ion-label>{{'directory.component' | translate}}</ion-label>
+                                <ion-select [(ngModel)]="component">
+                                    <ion-option value="nes">NES</ion-option>
+                                    <ion-option value="n64">Nintendo64</ion-option>
+                                    <ion-option value="ps">PlayStation</ion-option>
+                                    <ion-option value="genesis">Sega Genesis</ion-option>
+                                    <ion-option value="saturn">Sega Saturn</ion-option>
+                                    <ion-option value="snes">SNES</ion-option>
+                                </ion-select>
+                            </ion-item>
+
+                            <ion-item>
+                                <ion-label>{{'directory.service' | translate}}</ion-label>
+                                <ion-select [(ngModel)]="service">
+                                    <ion-option value="nes">NES</ion-option>
+                                    <ion-option value="n64">Nintendo64</ion-option>
+                                    <ion-option value="ps">PlayStation</ion-option>
+                                    <ion-option value="genesis">Sega Genesis</ion-option>
+                                    <ion-option value="saturn">Sega Saturn</ion-option>
+                                    <ion-option value="snes">SNES</ion-option>
+                                </ion-select>
+                            </ion-item>
+
+                            <ion-item>
+                                <ion-label>{{'directory.laboratory' | translate}}</ion-label>
+                                <ion-select [(ngModel)]="laboratory">
+                                    <ion-option value="nes">NES</ion-option>
+                                    <ion-option value="n64">Nintendo64</ion-option>
+                                    <ion-option value="ps">PlayStation</ion-option>
+                                    <ion-option value="genesis">Sega Genesis</ion-option>
+                                    <ion-option value="saturn">Sega Saturn</ion-option>
+                                    <ion-option value="snes">SNES</ion-option>
+                                </ion-select>
+                            </ion-item>
+
+                            <ion-item>
+                                <ion-label>{{'directory.structure' | translate}}</ion-label>
+                                <ion-select [(ngModel)]="structure">
+                                    <ion-option value="nes">NES</ion-option>
+                                    <ion-option value="n64">Nintendo64</ion-option>
+                                    <ion-option value="ps">PlayStation</ion-option>
+                                    <ion-option value="genesis">Sega Genesis</ion-option>
+                                    <ion-option value="saturn">Sega Saturn</ion-option>
+                                    <ion-option value="snes">SNES</ion-option>
+                                </ion-select>
+                            </ion-item>
+                        </ion-list>
+                        <div padding>
+                            <button type="submit" uga block>{{'directory.search' | translate}}</button>
+                        </div>
+                    </form>
+                </ion-card>
+                <ion-card>
+                    <ion-card-content>
+                        The British use the term "header", but the American term "head-shot" the English simply refuse to adopt.
+                    </ion-card-content>
+                </ion-card>
+            </ion-col>
+            <ion-col width-67>
+                
+                <ion-label text-right>{{'directory.results' | translate}} : 6</ion-label>
+
+                <ion-list>
+                    <ion-item>
+                        <h2>Nom - Prenom</h2>
+                        <p>Prenom.Nom@univ-grenoble-alpes.fr</p>
+                        <ion-note item-right>06.65.36.38.36</ion-note>
+                    </ion-item>
+                    <ion-item>
+                        <h2>Nom - Prenom</h2>
+                        <p>Prenom.Nom@univ-grenoble-alpes.fr</p>
+                        <ion-note item-right>06.65.36.38.36</ion-note>
+                    </ion-item>
+                    <ion-item>
+                        <h2>Nom - Prenom</h2>
+                        <p>Prenom.Nom@univ-grenoble-alpes.fr</p>
+                        <ion-note item-right>06.65.36.38.36</ion-note>
+                    </ion-item>
+                    <ion-item>
+                        <h2>Nom - Prenom</h2>
+                        <p>Prenom.Nom@univ-grenoble-alpes.fr</p>
+                        <ion-note item-right>06.65.36.38.36</ion-note>
+                    </ion-item>
+                    <ion-item>
+                        <h2>Nom - Prenom</h2>
+                        <p>Prenom.Nom@univ-grenoble-alpes.fr</p>
+                        <ion-note item-right>06.65.36.38.36</ion-note>
+                    </ion-item>
+                    <ion-item>
+                        <h2>Nom - Prenom</h2>
+                        <p>Prenom.Nom@univ-grenoble-alpes.fr</p>
+                        <ion-note item-right>06.65.36.38.36</ion-note>
+                    </ion-item>
+                </ion-list>
+
+            </ion-col>
+        </ion-row>
+    </ion-grid>
+</ion-content>

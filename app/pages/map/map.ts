@@ -1,20 +1,17 @@
 import {Component} from '@angular/core';
 import {Platform, MenuController, NavController} from 'ionic-angular';
 import {Geolocation} from 'ionic-native';
-import {NavBarDirective} from '../../../www/assets/directives/navbar/navbar';
 import {TranslateService, TranslatePipe} from 'ng2-translate/ng2-translate';
 import {Http} from '@angular/http';
-import {Observable} from 'rxjs/Observable';
-import 'rxjs/add/operator/map';
 
 
 @Component({
   templateUrl: 'build/pages/map/map.html',
-  directives: [NavBarDirective],
   pipes: [TranslatePipe]
 })
 
 export class MapPage {
+
 
   thisPage: string;
   public map: any;
@@ -32,9 +29,9 @@ export class MapPage {
 
       this.thisPage = "pages.map";
       this.http = http;
-      menu.enable(true);  
-      //this.getGoogleData();    
+      menu.enable(true);    
 
+      // http request to get Google markers info
       this.http.get('http://clement-marin.fr/webServices/mapdata.json')
           .map(res => res.json()).subscribe(data => {
               this.mapData = data;
@@ -49,32 +46,8 @@ export class MapPage {
       });
   }
 
-  getGoogleData() {
-      var apiKey = "AIzaSyBrF5Gnan0L4wVTKtirw1R9QMadU11eFm4";
-      var location = "45.191760, 5.768625";
-      var radius = "500";
-      var baseUrl = "https://maps.googleapis.com/maps/api/place/nearbysearch/json?";
-
-      var types = [
-                    "restaurant|bar|liquor_store|meal_delivery|meal_takeaway|cafe|food", 
-                    "library",
-                    "gym|health|hospital|pharmacy",
-                    "store|atm|laundry|bank|post_office"
-                  ];
-
-      types.forEach(element => {
-        var url = baseUrl +'location='+ location +'&radius='+ radius +'&types='+ element +'&key='+ apiKey;
-        this.http.get(url)
-            .map(res => res.json()).subscribe(data => {
-                this.mapData.push(data);
-        });
-        console.log(this.mapData);
-      })
-  }
-
-
   /**
-  * Test if toggle is true or false
+  * Check the current value of the toggle button
   * @param check : Boolean
   * @param type: String 
   */
@@ -87,14 +60,12 @@ export class MapPage {
   }
 
   /**
-  * Place or remove marker on the map
-  * @param map : google.maps
-  * @param type: String 
+  * Place or remove marker on the map depending on the value of map (map = null will remove all markers)
+  * @param map
+  * @param type
   */
   putMarker(map, type) {
       for (var i = 0; i < this.markers.length; i++) {
-        console.log(type);
-        console.log(this.markers[i]);
         if(this.markers[i].type === type) {
           this.markers[i].setMap(map);
         }
@@ -106,49 +77,89 @@ export class MapPage {
   */
   createMap() {
     this.map = new google.maps.Map(document.getElementById('map'), {
-          zoom: 15,     // agrandissement de la carte,
-          minZoom: 15,
-          center: new google.maps.LatLng(45.191760, 5.768625),   //centre de la carte
-          mapTypeId: google.maps.MapTypeId.ROADMAP,
+          // initial zoom
+          zoom: 15,
+          // block the back zoom
+          minZoom: 15, 
+          // center the map
+          center: new google.maps.LatLng(45.191760, 5.768625),
+          // type of the map
+          mapTypeId: google.maps.MapTypeId.ROADMAP, 
+          // disable the default control button of the map
           disableDefaultUI: true,
+          // disable control over the map
           mapTypeControl: false 
-    });
+    })
   }
 
   /**
-  * Run throw every marker
+  * Add the geolocalisation marker and run throw every marker from the http request
   */
   createMarkers() {
-    var type = ['rst', 'lib', 'san', 'ser'];
+
+    // see the template to view the different types
+    var types = ['rst', 'lib', 'san', 'ser'];
+
+    // 1 sec timeout, to make sure the map is loaded
     setTimeout(() => {
       
-      type.forEach(data => {
-        for (var i = 0; i < this.mapData[data].length; i++) {
-           this.addMarker(this.mapData[data][i], data);
+      this.geolocMarker();
+
+      types.forEach(type => {
+        for (var i = 0; i < this.mapData[type].length; i++) {
+           this.addMarker(this.mapData[type][i], type);
         }
-      })}, 1000);
+      })
+    }, 1000);
   }
 
   /**
-  * push the marker to the array markers
-  * @param marker : Object     Marker object
+  * Create the geoloc marker
+  */
+  geolocMarker() {
+    Geolocation.getCurrentPosition().then((resp) => {
+      var geoloc = new google.maps.Marker({
+        position: new google.maps.LatLng(resp.coords.latitude, resp.coords.longitude),
+        icon: {
+          path: google.maps.SymbolPath.CIRCLE,
+          scale: 7,
+          strokeColor: '#ffffff',
+          strokeOpacity: .85,
+          strokeWeight: 3,
+          fillColor: '#f53d3d',
+          fillOpacity: 1.0,
+        }    
+      });
+      geoloc.setMap(this.map);
+    })
+  }
+
+  /**
+  * create and push the marker to the markers array
+  * @param element    Single object from the http request
+  * @param type       Type of the marker
   */
   addMarker(element, type) {
-    var markerColor = this.setColorMarker(type);
+
+    // create the marker icon
+    var image = {
+      url: element.icon,
+      scaledSize: new google.maps.Size(15, 15),
+      origin: new google.maps.Point(0, 0),
+      // The anchor for this image is the base of the flagpole at (0, 32).
+      anchor: new google.maps.Point(0, 32)
+    };
+
+    // create the marker
     var marker = new google.maps.Marker({
           position: new google.maps.LatLng(element.geometry.location.lat, element.geometry.location.lng),
-          icon: {
-              path: google.maps.SymbolPath.CIRCLE,
-              scale: 7,
-              strokeColor: '#ffffff',
-              strokeOpacity: .85,
-              strokeWeight: 3,
-              fillColor: markerColor,
-              fillOpacity: 1.0,
-        }
+          icon: image    
     });
 
+    // set the marker's type
     marker.set('type', type);
+
+    // if the marker has a name => add an infowindow and a click listener
     if(element.name) {
       var infowindow = new google.maps.InfoWindow({
       content: element.name
@@ -157,34 +168,13 @@ export class MapPage {
         infowindow.open(this.map, marker);
       });
     }
+    // push the marker to an array
     this.markers.push(marker);
   }
 
   /**
-  * Set the color for the toggle type
-  * @param type : String  Type of marker
-  * @return String
-  */
-  setColorMarker(type) {
-      switch(type)
-      {
-        case "rst":
-          return '#FF9327';
-        case "adm":
-          return '#387ef5';
-        case "lib":
-          return '#32db64';
-        case "san":
-          return '#222';
-        case "ser":
-          return '#f53d3d';
-        default: 
-          return '#E845B2';
-      }
-  }
-
-  /**
-  * Resize and display the map everytime
+  * Resize and display the map
+  * (prevent a bug where the map is shown only the first time)
   */
   resizeMap() {
     //check if the map is loaded
@@ -200,6 +190,33 @@ export class MapPage {
   */
   previousPage() {
     this.navController.pop();
+  }
+
+  /**
+  * Get the google markers data directly from google 
+  * problem : 'Access-Control-Allow-Origin' header is present on the requested
+               resource. Origin 'null' is therefore not allowed access.
+  */
+  getGoogleData() {
+    var apiKey = "AIzaSyBrF5Gnan0L4wVTKtirw1R9QMadU11eFm4";
+    var location = "45.191760, 5.768625";
+    var radius = "500";
+    var baseUrl = "https://maps.googleapis.com/maps/api/place/nearbysearch/json?";
+
+    var types = [
+                  "restaurant|bar|liquor_store|meal_delivery|meal_takeaway|cafe|food", 
+                  "library",
+                  "gym|health|hospital|pharmacy",
+                  "store|atm|laundry|bank|post_office"
+                ];
+
+    types.forEach(element => {
+      var url = baseUrl +'location='+ location +'&radius='+ radius +'&types='+ element +'&key='+ apiKey;
+      this.http.get(url)
+          .map(res => res.json()).subscribe(data => {
+              this.mapData.push(data);
+      });
+    })
   }
 
 }

@@ -3,10 +3,10 @@
     <ion-spinner *ngIf="!loaded"></ion-spinner>
     <ion-grid>
         <ion-row>
-            <ion-col width-50>
+            <ion-col width-67>
                 <h3>{{'news.news' | translate}}</h3>
                 <ion-list>
-                    <ion-item class="item-news" *ngFor="let new of news" (click)="openModal({data: new, from: 'news.news' })">
+                    <ion-item class="item-news" *ngFor="let new of news" (click)="openModal({data: new, from: 'news.news'})">
                         <ion-thumbnail class="img-thumbnail" item-left>
                         <img src="assets/img/logo-uga.png">
                         </ion-thumbnail>
@@ -14,14 +14,9 @@
                         <p>{{new.pubDate | date:"dd/MM/yy"}}</p>
                     </ion-item>
                 </ion-list>
-                <ion-item class="no-border">
-                    <button clear danger item-right>
-                        + d'actualités
-                    </button>
-                </ion-item>
             </ion-col>
-            <ion-col width-50>
-                <ion-slides #mySlider (ionDidChange)="onSlideChanged()" [options]="mySlideOptions">
+            <ion-col width-33>
+                <!--<ion-slides #mySlider [options]="mySlideOptions">
                     <ion-slide>
                         <img src="assets/img/grenoble.png">
                     </ion-slide>
@@ -31,17 +26,20 @@
                     <ion-slide>
                         <img src="assets/img/logo-uga.png">
                     </ion-slide>
-                </ion-slides>
-                <h3>{{'news.events' | translate}}</h3>
-                <ion-list>
-                    <ion-item class="item-agd" *ngFor="let agd of agenda" (click)="openModal({data: agd, from: 'news.events' })">
-                        <ion-thumbnail class="img-thumbnail" item-left>
-                        <img src="assets/img/logo-uga.png">
-                        </ion-thumbnail>
-                        <p>{{agd.title}}</p>
-                        <p>{{agd.date | date:"dd/MM/yy à H:mm"}}</p>
-                    </ion-item>
-                </ion-list>
+                </ion-slides>-->
+                <ion-card>
+                    <ion-card-header uga>
+                        {{'news.events' | translate}}
+                    </ion-card-header>
+
+                    <ion-list>
+                        <ion-item class="item-agd" *ngFor="let agd of agenda" (click)="openModal({data: agd, from: 'news.events' })">
+
+                            <p>{{agd.title}}</p>
+                            <p>{{agd.date | date:"dd/MM/yy à H:mm"}}</p>
+                        </ion-item>
+                    </ion-list>
+                </ion-card>
             </ion-col>
         </ion-row>
     </ion-grid>

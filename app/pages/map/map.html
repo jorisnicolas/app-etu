@@ -1,9 +1,11 @@
 <!--<navbar-component [pageName]="thisPage | translate"></navbar-component>-->
 
+
+<!-- the Ion-menu hide and display with ion icon menu -->
 <ion-menu side="right" [content]="mycontent">
   <ion-content>
     <ion-toolbar>
-      <ion-title>Filtres</ion-title>
+      <ion-title>{{'map.filter' | translate}}</ion-title>
       <ion-buttons end>
         <button menuClose>
           <ion-icon name="close"></ion-icon>
@@ -12,32 +14,25 @@
     </ion-toolbar>
     <ion-list>
       <ion-item>
-        <ion-label>Restauration</ion-label>
-        <ion-toggle (ionChange)="toggleChange(rst, 'rst')" [(ngModel)]="rst" orange></ion-toggle>
+        <ion-label>{{'map.food' | translate}}</ion-label>
+        <ion-toggle (ionChange)="toggleChange(rst, 'rst')" [(ngModel)]="rst" uga></ion-toggle>
       </ion-item>
       <ion-item>
-        <ion-label>Administration</ion-label>
-        <ion-toggle (ionChange)="toggleChange(adm, 'adm')" [(ngModel)]="adm" primary></ion-toggle>
+        <ion-label>{{'map.library' | translate}}</ion-label>
+        <ion-toggle (ionChange)="toggleChange(lib, 'lib')" [(ngModel)]="lib" uga></ion-toggle>
       </ion-item>
       <ion-item>
-        <ion-label>Bibliothèque</ion-label>
-        <ion-toggle (ionChange)="toggleChange(lib, 'lib')" [(ngModel)]="lib" secondary></ion-toggle>
+        <ion-label>{{'map.health' | translate}}</ion-label>
+        <ion-toggle (ionChange)="toggleChange(san, 'san')" [(ngModel)]="san" uga></ion-toggle>
       </ion-item>
       <ion-item>
-        <ion-label>Transport</ion-label>
-        <ion-toggle (ionChange)="toggleChange(tsp, 'tsp')" [(ngModel)]="tsp" dark></ion-toggle>
-      </ion-item>
-      <ion-item>
-        <ion-label>Structure Sportive</ion-label>
-        <ion-toggle (ionChange)="toggleChange(san, 'san')" [(ngModel)]="san" danger></ion-toggle>
-      </ion-item>
-      <ion-item>
-        <ion-label>Services</ion-label>
-        <ion-toggle (ionChange)="toggleChange(ser, 'ser')" [(ngModel)]="ser" pink></ion-toggle>
+        <ion-label>{{'map.utility' | translate}}</ion-label>
+        <ion-toggle (ionChange)="toggleChange(ser, 'ser')" [(ngModel)]="ser" uga></ion-toggle>
       </ion-item>
     </ion-list>
   </ion-content>
 </ion-menu>
+
 
 <ion-toolbar #mycontent>
   <button menuToggle right>

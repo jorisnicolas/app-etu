@@ -69,11 +69,6 @@ export class NewsPage {
     });
   }
 
-  onSlideChanged() {
-    let currentIndex = this.slider.getActiveIndex();
-    console.log("Current index is", currentIndex);
-  }
-
   openModal(data) {
     let modal = Modal.create(MyModal, data);
     this.nav.present(modal);
