@@ -3,7 +3,7 @@ import {Modal, NavParams, ViewController} from 'ionic-angular';
 import {TranslateService, TranslatePipe} from 'ng2-translate/ng2-translate';
 
 @Component({
-  templateUrl: 'build/pages/news/modals/modals.html',
+  templateUrl: 'assets/modals/newsModals/modals.html',
   styles: [`
       .img-left{
             float: left;
@@ -24,7 +24,7 @@ import {TranslateService, TranslatePipe} from 'ng2-translate/ng2-translate';
   pipes: [TranslatePipe]
 })
 
-export class MyModal {
+export class NewsModal {
 
     data: any;
     title: any;

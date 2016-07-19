@@ -43,6 +43,22 @@ ion-spinner {
         margin-top: 53px;
 }
 
+ion-col[width-60] {
+        -webkit-box-flex: 0;
+        -webkit-flex: 0 0 60%;
+        -ms-flex: 0 0 60%;
+        flex: 0 0 60%;
+        max-width: 60%;
+}
+
+ion-col[width-40] {
+        -webkit-box-flex: 0;
+        -webkit-flex: 0 0 40%;
+        -ms-flex: 0 0 40%;
+        flex: 0 0 40%;
+        max-width: 40%;
+}
+
 .toolbar-title {
         color: #db2d2c;
 }
@@ -60,6 +76,10 @@ ion-label {
 
 ion-slides {
     height: 47.36%;
+}
+
+.bold{
+        font-weight: bold;
 }
 
 @media only screen and (min-height: 600px) and (min-width: 768px) {

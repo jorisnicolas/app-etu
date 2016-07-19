@@ -18,6 +18,179 @@ export class MapPage {
   public marker: any;
   markers = [];
   public mapData = []
+  public style = [
+    {
+        "featureType": "all",
+        "elementType": "geometry",
+        "stylers": [
+            {
+                "hue": "#ff4400"
+            },
+            {
+                "saturation": -68
+            },
+            {
+                "lightness": -4
+            },
+            {
+                "gamma": 0.72
+            }
+        ]
+    },
+    {
+        "featureType": "administrative.land_parcel",
+        "elementType": "geometry.stroke",
+        "stylers": [
+            {
+                "visibility": "off"
+            }
+        ]
+    },
+    {
+        "featureType": "landscape.man_made",
+        "elementType": "geometry",
+        "stylers": [
+            {
+                "gamma": 3.1
+            },
+            {
+                "visibility": "on"
+            },
+            {
+                "hue": "#0077ff"
+            }
+        ]
+    },
+    {
+        "featureType": "landscape.man_made",
+        "elementType": "geometry.fill",
+        "stylers": [
+            {
+                "visibility": "on"
+            },
+            {
+                "hue": "#ff0011"
+            }
+        ]
+    },
+    {
+        "featureType": "landscape.man_made",
+        "elementType": "geometry.stroke",
+        "stylers": [
+            {
+                "visibility": "on"
+            },
+            {
+                "color": "#be7d71"
+            }
+        ]
+    },
+    {
+        "featureType": "poi.park",
+        "elementType": "all",
+        "stylers": [
+            {
+                "hue": "#44ff00"
+            },
+            {
+                "saturation": -23
+            }
+        ]
+    },
+    {
+        "featureType": "transit",
+        "elementType": "labels.text.stroke",
+        "stylers": [
+            {
+                "saturation": -64
+            },
+            {
+                "hue": "#ff9100"
+            },
+            {
+                "lightness": 16
+            },
+            {
+                "gamma": 0.47
+            },
+            {
+                "weight": 2.7
+            }
+        ]
+    },
+    {
+        "featureType": "transit.line",
+        "elementType": "geometry",
+        "stylers": [
+            {
+                "lightness": -48
+            },
+            {
+                "hue": "#ff5e00"
+            },
+            {
+                "gamma": 1.2
+            },
+            {
+                "saturation": -23
+            }
+        ]
+    },
+    {
+        "featureType": "water",
+        "elementType": "all",
+        "stylers": [
+            {
+                "gamma": 0.44
+            },
+            {
+                "saturation": -33
+            },
+            {
+                "color": "#245e77"
+            }
+        ]
+    },
+    {
+        "featureType": "water",
+        "elementType": "labels.text.fill",
+        "stylers": [
+            {
+                "hue": "#007fff"
+            },
+            {
+                "gamma": 0.77
+            },
+            {
+                "saturation": 65
+            },
+            {
+                "lightness": 99
+            }
+        ]
+    },
+    {
+        "featureType": "water",
+        "elementType": "labels.text.stroke",
+        "stylers": [
+            {
+                "gamma": 0.11
+            },
+            {
+                "weight": 5.6
+            },
+            {
+                "saturation": 99
+            },
+            {
+                "hue": "#0091ff"
+            },
+            {
+                "lightness": -86
+            }
+        ]
+    }
+];
   
 
   constructor(
@@ -88,7 +261,8 @@ export class MapPage {
           // disable the default control button of the map
           disableDefaultUI: true,
           // disable control over the map
-          mapTypeControl: false 
+          mapTypeControl: false,
+          styles: this.style
     })
   }
 
@@ -144,10 +318,10 @@ export class MapPage {
     // create the marker icon
     var image = {
       url: element.icon,
-      scaledSize: new google.maps.Size(15, 15),
-      origin: new google.maps.Point(0, 0),
+      scaledSize: new google.maps.Size(17, 17),
+      //origin: new google.maps.Point(0, 0),
       // The anchor for this image is the base of the flagpole at (0, 32).
-      anchor: new google.maps.Point(0, 32)
+      //anchor: new google.maps.Point(0, 32)
     };
 
     // create the marker
@@ -218,5 +392,4 @@ export class MapPage {
       });
     })
   }
-
 }

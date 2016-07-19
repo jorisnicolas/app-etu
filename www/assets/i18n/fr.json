@@ -27,6 +27,10 @@
             "directory.structure": "Structure fédérative",
             "directory.search": "Recherche",
             "directory.results": "Résultat(s)",
-
+            "directory.explication": "Pour effectuer votre recherche, vous pouvez choisir le nom et/ou le prénom. Vous pouvez aussi rechercher les personnes d'une composante, d'un service ou d'une équipe de recherche.",
+            "modal.mail": "Mail",
+            "modal.phone": "Téléphone",
+            "modal.adress": "Adresse",
+            
       "pages.process": "Démarches"
 }

@@ -27,6 +27,10 @@
             "directory.structure": "Federative Structure",
             "directory.search": "Search",
             "directory.results": "Result(s)",
-
+            "directory.explication": "To make your search, you can choose the firstname and/or lastname . You can also search a person from a component, a service or a research team/laboratory.",
+            "modal.mail": "Mail",
+            "modal.phone": "Phone",
+            "modal.adress": "Adress",
+            
       "pages.process": "Process"
 }

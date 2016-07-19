@@ -1,9 +1,9 @@
 import {Component, ViewChild} from '@angular/core';
 import {NavBarDirective} from '../../../www/assets/directives/navbar/navbar';
-import {Modal, NavController,ViewController,Slides} from 'ionic-angular';
+import {Modal, NavController,ViewController, Slide} from 'ionic-angular';
 import {TranslateService, TranslatePipe} from 'ng2-translate/ng2-translate';
 import {Http} from '@angular/http';
-import {MyModal} from './modals/modals';
+import {NewsModal} from '../../../www/assets/modals/newsModals/modals';
 
 
 
@@ -33,14 +33,14 @@ import {MyModal} from './modals/modals';
 
 export class NewsPage {
 
-  @ViewChild('mySlider') slider: Slides;
+  // @ViewChild('mySlider') slider: Slides;
   
-  mySlideOptions = {
-    loop: true,
-    autoplay: 5000, 
-    pager: true,
-    speed: 500
-  };
+  // mySlideOptions = {
+  //   loop: true,
+  //   autoplay: 5000, 
+  //   pager: true,
+  //   speed: 500
+  // };
 
   thisPage: string;
 
@@ -70,7 +70,7 @@ export class NewsPage {
   }
 
   openModal(data) {
-    let modal = Modal.create(MyModal, data);
+    let modal = Modal.create(NewsModal, data);
     this.nav.present(modal);
   }
 

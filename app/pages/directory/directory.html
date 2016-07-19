@@ -70,45 +70,20 @@
                     </form>
                 </ion-card>
                 <ion-card>
-                    <ion-card-content>
-                        The British use the term "header", but the American term "head-shot" the English simply refuse to adopt.
+                    <ion-card-content text-justify>
+                        {{'directory.explication' | translate}}
                     </ion-card-content>
                 </ion-card>
             </ion-col>
             <ion-col width-67>
                 
-                <ion-label text-right>{{'directory.results' | translate}} : 6</ion-label>
+                <ion-label text-right>{{'directory.results' | translate}} : {{data.length}}</ion-label>
 
                 <ion-list>
-                    <ion-item>
-                        <h2>Nom - Prenom</h2>
-                        <p>Prenom.Nom@univ-grenoble-alpes.fr</p>
-                        <ion-note item-right>06.65.36.38.36</ion-note>
-                    </ion-item>
-                    <ion-item>
-                        <h2>Nom - Prenom</h2>
-                        <p>Prenom.Nom@univ-grenoble-alpes.fr</p>
-                        <ion-note item-right>06.65.36.38.36</ion-note>
-                    </ion-item>
-                    <ion-item>
-                        <h2>Nom - Prenom</h2>
-                        <p>Prenom.Nom@univ-grenoble-alpes.fr</p>
-                        <ion-note item-right>06.65.36.38.36</ion-note>
-                    </ion-item>
-                    <ion-item>
-                        <h2>Nom - Prenom</h2>
-                        <p>Prenom.Nom@univ-grenoble-alpes.fr</p>
-                        <ion-note item-right>06.65.36.38.36</ion-note>
-                    </ion-item>
-                    <ion-item>
-                        <h2>Nom - Prenom</h2>
-                        <p>Prenom.Nom@univ-grenoble-alpes.fr</p>
-                        <ion-note item-right>06.65.36.38.36</ion-note>
-                    </ion-item>
-                    <ion-item>
-                        <h2>Nom - Prenom</h2>
-                        <p>Prenom.Nom@univ-grenoble-alpes.fr</p>
-                        <ion-note item-right>06.65.36.38.36</ion-note>
+                    <ion-item *ngFor="let item of data" (click)="openModal({data: item})">
+                        <h2>{{item.firstname}} - {{item.lastname}}</h2>
+                        <p>{{item.mail}}</p>
+                        <ion-note item-right>{{item.phone}}</ion-note>
                     </ion-item>
                 </ion-list>
 
