@@ -1,5 +1,6 @@
 import {Component, ViewChild} from '@angular/core';
 import {NavController} from 'ionic-angular';
+import {StatusBar} from 'ionic-native';
 import {TranslateService, TranslatePipe} from 'ng2-translate/ng2-translate';
 import {NewsPage} from '../news/news';
 import {MapPage} from '../map/map';
@@ -24,6 +25,7 @@ export class HomePage {
   constructor(private navController: NavController, translate: TranslateService) {
     this.translate = translate;
 
+    StatusBar.hide();
     this.pages = [
       { title: 'pages.news',
         content: 'home.contentNews',

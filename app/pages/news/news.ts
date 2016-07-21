@@ -6,28 +6,9 @@ import {Http} from '@angular/http';
 import {NewsModal} from '../../../www/assets/modals/newsModals/modals';
 
 
-
 @Component({
   templateUrl: 'build/pages/news/news.html',
   directives: [NavBarDirective],
-  styles: [`
-      .news-img{
-            border: 10px white solid;
-            -webkit-box-shadow: -3px 3px 7px 0px rgba(173,164,173,1);
-            -moz-box-shadow: -3px 3px 7px 0px rgba(173,164,173,1);
-            box-shadow: -3px 3px 7px 0px rgba(173,164,173,1);
-      }
-
-      .item-news{
-            height: 100px;
-      }
-      .item-agd{
-            height: 70px;
-      }
-      .no-border{
-          border: 0 !important;
-      }
-  `],
   pipes: [TranslatePipe]
 })
 
@@ -46,8 +27,15 @@ export class NewsPage {
 
   agenda= [];
   news= [];
-  loaded = false;
-  url = ["http://clement-marin.fr/webServices/news.json", "http://clement-marin.fr/webServices/diary.json"];
+  loaded = [false, false, false];
+  lang: any;
+  firstNews: any;
+  url = [
+         "http://clement-marin.fr/webServices/news.json",
+         "http://clement-marin.fr/webServices/diary.json",
+         "http://api.openweathermap.org/data/2.5/forecast/daily?q=grenoble,fr&cnt=4&appid=279e277900d88319af234085ca498ed9"
+        ];
+  meteo: any;
   
   
 
@@ -55,17 +43,35 @@ export class NewsPage {
     this.thisPage = "pages.news";
     this.http = http;
 
+    this.lang = translate.currentLang;
+
     this.http.get(this.url[0])
     .map(res => res.json()).subscribe(data => {
         this.news = data.channel.item;
-        this.loaded = true;
-        this.news = this.news.slice(0, 5);
+        this.loaded[0] = true;
+        // take the 1st news
+        this.firstNews = this.news[0];
+        // take only the next 4 news
+        this.news = this.news.slice(1, 5);
     });
     this.http.get(this.url[1])
     .map(res => res.json()).subscribe(data => {
         this.agenda = data.channel.item;
-        this.loaded = true;
+        this.loaded[1] = true;
+
+        // take only the first 3 events
         this.agenda = this.agenda.slice(0, 3);
+    });
+
+    this.http.get(this.url[2] + "&lang="+ translate.currentLang)
+    .map(res => res.json()).subscribe(data => {
+        this.meteo = {
+          temp: Math.round(data.list[0].temp.day - 273.15),
+          weather: data.list[0].weather[0].description,
+          list: this.listDateTemp(data.list.slice(1, 4))
+        }
+        //console.log(this.meteo.list);
+        this.loaded[2] = true;
     });
   }
 
@@ -73,5 +79,22 @@ export class NewsPage {
     let modal = Modal.create(NewsModal, data);
     this.nav.present(modal);
   }
+
+  listDateTemp(list){
+    
+    var days = ["days.sun", "days.mon", "days.tue","days.wed","days.thu","days.fri","days.sat"];
+    
+    list.forEach(element => {
+        var a = new Date(element.dt * 1000);
+        var date = a.getDate();
+        var day = days[a.getDay()];
+        element.dt = date;
+        element.d = day;
+        element.temp.min = Math.round(element.temp.min - 273.15);
+        element.temp.max = Math.round(element.temp.max - 273.15);
+    });
+    
+    return list;
+}
 
 }

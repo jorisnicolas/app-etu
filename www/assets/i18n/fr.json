@@ -1,4 +1,12 @@
 {
+      "days.mon": "Lundi",
+      "days.tue": "Mardi",
+      "days.wed": "Mercredi",
+      "days.thu": "Jeudi",
+      "days.fri": "Vendredi",
+      "days.sat": "Samedi",
+      "days.sun": "Dimanche",
+      
       "pages.home": "Accueil",
             "home.contentNews": "Les dernières actualités de l'UGA et les événements à venir !",
             "home.contentMap": "Carte intéractive",

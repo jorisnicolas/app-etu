@@ -37,42 +37,48 @@ export class DirectoryPage {
         lastname: 'lastname',
         mail: 'Prenom.Nom@univ-grenoble-alpes.fr',
         phone: '06.58.36.98.54',
-        component: 'component'
+        component: 'component',
+        coord: '45.191760,5.768625'
       },
       {
         firstname: 'firstname',
         lastname: 'lastname',
         mail: 'Prenom.Nom@univ-grenoble-alpes.fr',
         phone: '06.58.36.98.54',
-        component: 'component'
+        component: 'component',
+        coord: ''
       },
       {
         firstname: 'firstname',
         lastname: 'lastname',
         mail: 'Prenom.Nom@univ-grenoble-alpes.fr',
         phone: '06.58.36.98.54',
-        laboratory: 'laboratory'
+        component: 'laboratory',
+        coord: '45.191760,5.768625'
       },
       {
         firstname: 'firstname',
         lastname: 'lastname',
         mail: 'Prenom.Nom@univ-grenoble-alpes.fr',
         phone: '06.58.36.98.54',
-        structure: 'structure'
+        component: 'structure',
+        coord: '45.191760,5.768625'
       },
       {
         firstname: 'firstname',
         lastname: 'lastname',
         mail: 'Prenom.Nom@univ-grenoble-alpes.fr',
         phone: '06.58.36.98.54',
-        component: 'component'
+        component: 'component',
+        coord: '45.191760,5.768625'
       },
       {
         firstname: 'firstname',
         lastname: 'lastname',
         mail: 'Prenom.Nom@univ-grenoble-alpes.fr',
         phone: '06.58.36.98.54',
-        service: 'service'
+        component: 'service',
+        coord: ''
       }
     ]
   }

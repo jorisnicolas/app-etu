@@ -277,7 +277,11 @@ export class MapPage {
     // 1 sec timeout, to make sure the map is loaded
     setTimeout(() => {
       
+      // add a geolocalisation marker
       this.geolocMarker();
+
+      // center the map on the university
+      this.map.setCenter(new google.maps.LatLng(45.191760, 5.768625));
 
       types.forEach(type => {
         for (var i = 0; i < this.mapData[type].length; i++) {

@@ -1,3 +1,96 @@
-.news {
+.content {
+    .news-img{
+            border: 10px white solid;
+            -webkit-box-shadow: -3px 3px 7px 0px rgba(173,164,173,1);
+            -moz-box-shadow: -3px 3px 7px 0px rgba(173,164,173,1);
+            box-shadow: -3px 3px 7px 0px rgba(173,164,173,1);
+      }
 
+      .firstItem{
+          height: 224px;
+     }
+
+      .firstImg{
+          margin: 0 25px 0 0;
+          width: 200px;
+          height: 130px;
+      }
+
+      .sub-title{
+          display: inline-block;
+          width:100%
+        }
+
+        .sub-element {
+            float: left;
+            width: 50%;
+            margin: 0;
+            padding: 0;
+        }
+
+        .separator {
+            width: 50px;
+            margin-top: 5px;
+            background-color: #db2d2c;
+            height: 5px;
+        }
+
+      .item-news{
+            height: 102.5px;
+      }
+      
+      .img-thumbnail {
+            max-width: none;
+      }
+
+      .no-border{
+          border: 0 !important;
+      }
+
+      .icon{
+          height:40%;
+          width:40%;
+          margin:auto;
+      }
+
+      .min{
+          color: #0F4B70;
+      }
+
+      .title{
+          color: rgb(128, 128, 128);
+          margin-left:5%;
+      }
+
+      .max{
+          color: #AD090A;
+      }
+        ion-card {
+            position: relative;
+            text-align: center;
+            margin: 10px 10px 2px 10px;
+        }
+
+        .img{
+            height: 260px;
+        }
+
+        .card-title {
+            position: absolute;
+            top: 22%;
+            font-size: 2.5em;
+            width: 100%;
+            font-weight: bold;
+            color: #fff;
+            text-shadow: 2px 2px black;
+        }
+
+        .card-subtitle {
+            font-size: 1.5em;
+            position: absolute;
+            top: 34%;
+            width: 100%;
+            color: #fff;
+            text-shadow: 2px 2px black;
+        }
 }

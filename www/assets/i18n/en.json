@@ -1,4 +1,12 @@
 {
+      "days.mon": "Monday",
+      "days.tue": "Tuesday",
+      "days.wed": "Wednesday",
+      "days.thu":  "Thursday",
+      "days.fri": "Friday",
+      "days.sat": "Saturday",
+      "days.sun": "Sunday",
+      
       "pages.home": "Home",
             "home.contentNews": "The latest news about the UGA and the incomings events",
             "home.contentMap": "Interactive map",
