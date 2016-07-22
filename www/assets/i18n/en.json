@@ -7,6 +7,8 @@
       "days.sat": "Saturday",
       "days.sun": "Sunday",
       
+      "loadingMore": "Loading more data...",
+
       "pages.home": "Home",
             "home.contentNews": "The latest news about the UGA and the incomings events",
             "home.contentMap": "Interactive map",

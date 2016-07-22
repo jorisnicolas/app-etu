@@ -1,6 +1,6 @@
 <navbar-component [pageName]="thisPage | translate"></navbar-component>
 <ion-content class="content">
-    <ion-spinner *ngIf="!loaded[0] && !loaded[1] && !loaded[2]"></ion-spinner>
+    <ion-spinner mrg-top *ngIf="!loaded[0] && !loaded[1] && !loaded[2]"></ion-spinner>
     <ion-grid>
         <ion-row>
             <ion-col width-60 *ngIf="loaded[0]">
@@ -9,7 +9,7 @@
                         <ion-icon name="paper"></ion-icon> {{'news.news' | translate}}
                     </ion-list-header>
                     <ion-item (click)="openModal({data: firstNews, from: 'news.news'})">
-                        <img class="firstImg" src="http://i.telegraph.co.uk/multimedia/archive/03589/Wellcome_Image_Awa_3589699k.jpg" item-left/>
+                        <img class="firstImg" src="http://cache4.asset-cache.net/xt/531654252.jpg?v=1&g=fs1|0|SKP246|62|222&s=1&b=RUY3%22" item-left/>
                         <h1 text-left>{{firstNews.title}}</h1>
                         <div class="sub-title">
                             <div class="sub-element">
@@ -22,9 +22,9 @@
                         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat...</p>
                     </ion-item>
 
-                    <ion-item class="item-news" *ngFor="let new of news" (click)="openModal({data: new, from: 'news.news'})">
+                    <ion-item class="item-news" *ngFor="let new of news; let i = index" (click)="openModal({data: new, from: 'news.news'})">
                         <ion-thumbnail item-left>
-                        <img class="img-thumbnail" src="http://soocurious.com/fr/wp-content/uploads/2013/08/106-bebes-animaux-hyper-craquants-qui-vous-feront-fondre-de-tendresse13.jpg">
+                        <img class="img-thumbnail" src="http://cache4.asset-cache.net/xt/532{{i}}51222.jpg?v=1&g=fs1|0|SKP246|62|222&s=1&b=RUY3%22">
                         </ion-thumbnail>
                         <h2>{{new.title}}</h2>
                         <p>{{new.pubDate | date:"dd/MM/yy"}}</p>
@@ -51,7 +51,7 @@
                             </ion-row>
                         </ion-grid>
                     </ion-item>
-                     </ion-card>
+                </ion-card>
                 <ion-list no-border>
                     <ion-list-header>
                         <ion-icon name="calendar"></ion-icon> {{'news.events' | translate}}

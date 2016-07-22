@@ -6,6 +6,8 @@
       "days.fri": "Vendredi",
       "days.sat": "Samedi",
       "days.sun": "Dimanche",
+
+      "loadingMore": "Chargement des données...",
       
       "pages.home": "Accueil",
             "home.contentNews": "Les dernières actualités de l'UGA et les événements à venir !",

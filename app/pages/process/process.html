@@ -1,2 +1,137 @@
 <navbar-component [pageName]="thisPage | translate"></navbar-component>
-<ion-content></ion-content>
+<ion-content class="content">
+    <ion-grid>
+        <ion-row>
+            <ion-col width-33>
+                <ion-card *ngIf="selectedItem === false">
+                    <ion-list>
+                        <ion-list-header class="header-border">
+                            <h1 padding-left>
+                                <ion-icon name="school" large></ion-icon>
+                                <span class="margin-icon">Orientation et insertion</span>
+                            </h1>
+                        </ion-list-header>
+                        <ion-item>
+                            <h2 padding-left (click)="selected(true)">Pour vous accueillir</h2>
+                        </ion-item>
+
+                        <ion-item>
+                            <h2 padding-left (click)="selected(true)">Du lycée à l'université</h2>
+                        </ion-item>
+
+                        <ion-item>
+                            <h2 padding-left (click)="selected(true)">Construire votre parcours d'études</h2>
+                        </ion-item>
+
+                        <ion-item>
+                            <h2 padding-left (click)="selected(true)">Se réorienter</h2>
+                        </ion-item>
+
+                        <ion-item>
+                            <h2 padding-left (click)="selected(true)">Stages et insertion professionnelle</h2>
+                        </ion-item>
+
+                        <ion-item>
+                            <h2 padding-left (click)="selected(true)">Suivi des parcours</h2>
+                        </ion-item>
+                    </ion-list>
+                </ion-card>
+                <ion-card *ngIf="selectedItem === true">
+                    <ion-list>
+                        <ion-list-header class="header-border">
+                               <h1> <span padding-left>Se réorienter</span></h1>
+                                <ion-button item-right>
+                                    <ion-icon name="close" (click)="selected(false)"></ion-icon>
+                                </ion-button>
+                        </ion-list-header>
+                        <ion-item>
+                            <h2 padding-left>Se réorienter en 1re année</h2>
+                        </ion-item>
+
+                        <ion-item>
+                            <h2 padding-left>L'orientation tout au long de vos études</h2>
+                        </ion-item>
+                    </ion-list>
+                </ion-card>
+                <ion-card class="background-card-img">
+                    <img class="card-img" end src="assets/img/bg-fleur.png"/>
+                    <div class="card-t" text-left padding-left>
+                        Contact
+                    </div>
+                    <div class="card-st" text-left padding-left>
+                        <p class="bold">Direction de l'orientation et de l'insertion professionnelle</p>
+                        <p>CS 40 700
+                        38058 Grenoble Cedex 9</p>
+                    <h3 text-uppercase class="bold" padding-top text-right>
+                        <ion-icon uga name="arrow-round-forward"></ion-icon>
+                        <span class="margin-icon">Toutes les coordonnées</span>
+                    </h3>
+                    </div>
+                </ion-card>
+            </ion-col>
+            <ion-col width-67 pdg-bot-cnt>
+                   <p> Si vous souhaitez vous réorienter au cours de votre première année, voici ce que vous devez savoir.</p>
+<h5 uga>Pour la rentrée universitaire 2016-2017</h5>
+
+
+<p>Si vous étiez déjà inscrit en 2015 / 2016 dans l’un des ex-établissements fondateur de l’Université Grenoble Alpes, et si vous souhaitez vous réinscrire dans une filière des domaines "Arts, lettres, langues", "Droit, économie, gestion", "Sciences humaines et sociales" ou "Sciences, technologies, santé" : </p>
+
+<span uga>Suivez la procédure de réinscription</span>
+<h5 uga>Après quelques semaines de cours</h5>
+
+
+<p>Vous réalisez que la filière dans laquelle vous êtes inscrit ne vous convient pas et vous souhaitez vous inscrire dans une autre filière de l’Université Grenoble Alpes : venez vous renseigner à l’espace orientation et insertion professionnelle pour connaître les modalités de réorientation ou de réinscription dans une nouvelle licence.</p>
+
+<span uga>Localiser les espaces d'information</span>
+<h5 uga>Au second semestre</h5>
+
+
+<p>Si vous souhaitez vous réorienter au second semestre, en janvier 2017, dans l’un des domaines de l’Université Grenoble Alpes : de plus amples informations seront disponibles à partir d’octobre 2016.
+<h5 uga>Cas particulier : la réorientation des étudiants PACES</h5>
+
+
+<p>Plusieurs types d'actions et d'accompagnements vous sont proposés tout au long de l'année :</p>
+
+    <ul>
+        <li>Des séances d'information.</li>
+        <li>Des ateliers d'aide à la réorientation.</li>
+        <li>Des amphis d'information sur les réorientations à la fin de chaque semestre.</li>
+    </ul>
+
+<h5 uga>Module Tremplin</h5>
+
+
+<p>Vous êtes étudiant en 1ère année de licence et vous souhaitez vous réorienter vers une autre formation (BTS, DUT…) pour la rentrée 2017 / 2018 ? Le module Tremplin est fait pour vous !</p>
+
+<span uga>En savoir plus sur le module Tremplin</span>
+<p> Si vous souhaitez vous réorienter au cours de votre première année, voici ce que vous devez savoir.</p>
+<h5 uga>Pour la rentrée universitaire 2016-2017</h5>
+
+
+<p>Si vous étiez déjà inscrit en 2015 / 2016 dans l’un des ex-établissements fondateur de l’Université Grenoble Alpes, et si vous souhaitez vous réinscrire dans une filière des domaines "Arts, lettres, langues", "Droit, économie, gestion", "Sciences humaines et sociales" ou "Sciences, technologies, santé" : </p>
+
+<span uga>Suivez la procédure de réinscription</span>
+<h5 uga>Après quelques semaines de cours</h5>
+
+
+<p>Vous réalisez que la filière dans laquelle vous êtes inscrit ne vous convient pas et vous souhaitez vous inscrire dans une autre filière de l’Université Grenoble Alpes : venez vous renseigner à l’espace orientation et insertion professionnelle pour connaître les modalités de réorientation ou de réinscription dans une nouvelle licence.</p>
+
+<span uga>Localiser les espaces d'information</span>
+<h5 uga>Au second semestre</h5>
+
+
+<p>Si vous souhaitez vous réorienter au second semestre, en janvier 2017, dans l’un des domaines de l’Université Grenoble Alpes : de plus amples informations seront disponibles à partir d’octobre 2016.
+<h5 uga>Cas particulier : la réorientation des étudiants PACES</h5>
+
+
+<p>Plusieurs types d'actions et d'accompagnements vous sont proposés tout au long de l'année :</p>
+
+    <ul>
+        <li>Des séances d'information.</li>
+        <li>Des ateliers d'aide à la réorientation.</li>
+        <li>Des amphis d'information sur les réorientations à la fin de chaque semestre.</li>
+    </ul>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
+</ion-content>

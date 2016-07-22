@@ -75,18 +75,22 @@
                     </ion-card-content>
                 </ion-card>
             </ion-col>
-            <ion-col width-67>
+            <ion-col width-67  pdg-bot-cnt>
                 
-                <ion-label text-right>{{'directory.results' | translate}} : {{data.length}}</ion-label>
+                <ion-label text-right>{{'directory.results' | translate}} : {{showData.length}}</ion-label>
 
                 <ion-list>
-                    <ion-item *ngFor="let item of data" (click)="openModal({data: item})">
+                    <ion-item *ngFor="let item of showData" (click)="openModal({data: item})">
                         <h2>{{item.firstname}} - {{item.lastname}}</h2>
                         <p>{{item.mail}}</p>
                         <ion-note item-right>{{item.phone}}</ion-note>
                     </ion-item>
                 </ion-list>
-
+                <ion-infinite-scroll *ngIf="!noMoreData" (ionInfinite)="doInfinite($event)">
+                    <ion-infinite-scroll-content
+                    loadingText="{{'loadingMore' | translate}}">
+                    </ion-infinite-scroll-content>
+                </ion-infinite-scroll>
             </ion-col>
         </ion-row>
     </ion-grid>
