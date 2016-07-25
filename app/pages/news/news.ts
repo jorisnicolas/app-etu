@@ -33,7 +33,7 @@ export class NewsPage {
   url = [
          "http://clement-marin.fr/webServices/news.json",
          "http://clement-marin.fr/webServices/diary.json",
-         "http://api.openweathermap.org/data/2.5/forecast/daily?q=grenoble,fr&cnt=4&appid=279e277900d88319af234085ca498ed9"
+         "http://api.openweathermap.org/data/2.5/forecast/daily?q=grenoble,fr&units=metric&cnt=4&appid=279e277900d88319af234085ca498ed9"
         ];
   meteo: any;
   
@@ -66,7 +66,7 @@ export class NewsPage {
     this.http.get(this.url[2] + "&lang="+ translate.currentLang)
     .map(res => res.json()).subscribe(data => {
         this.meteo = {
-          temp: Math.round(data.list[0].temp.day - 273.15),
+          temp: Math.round(data.list[0].temp.day),
           weather: data.list[0].weather[0].description,
           list: this.listDateTemp(data.list.slice(1, 4))
         }
@@ -90,8 +90,8 @@ export class NewsPage {
         var day = days[a.getDay()];
         element.dt = date;
         element.d = day;
-        element.temp.min = Math.round(element.temp.min - 273.15);
-        element.temp.max = Math.round(element.temp.max - 273.15);
+        element.temp.min = Math.round(element.temp.min);
+        element.temp.max = Math.round(element.temp.max);
     });
     
     return list;

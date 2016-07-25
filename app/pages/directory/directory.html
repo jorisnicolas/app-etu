@@ -1,9 +1,9 @@
 <navbar-component [pageName]="thisPage | translate"></navbar-component>
-<ion-content class="content">
+<ion-content class="content directory">
     <ion-grid>
         <ion-row>
             <ion-col width-33>
-                <ion-card>
+                <ion-card class="no-scroll">
                     <form (ngSubmit)="onSubmit(firstname, lastname, component, service, laboratory, structure)">
                         <ion-list>
                             <ion-item>
@@ -76,8 +76,9 @@
                 </ion-card>
             </ion-col>
             <ion-col width-67  pdg-bot-cnt>
-                
-                <ion-label text-right>{{'directory.results' | translate}} : {{showData.length}}</ion-label>
+
+                <ion-label text-right *ngIf="data.length === 0 && submitted===true">Aucun resultats</ion-label>
+                <ion-label text-right *ngIf="showData.length !== 0">{{'directory.results' | translate}} : {{showData.length}}/{{data.length}}</ion-label>
 
                 <ion-list>
                     <ion-item *ngFor="let item of showData" (click)="openModal({data: item})">
@@ -86,6 +87,7 @@
                         <ion-note item-right>{{item.phone}}</ion-note>
                     </ion-item>
                 </ion-list>
+                
                 <ion-infinite-scroll *ngIf="!noMoreData" (ionInfinite)="doInfinite($event)">
                     <ion-infinite-scroll-content
                     loadingText="{{'loadingMore' | translate}}">
